@@ -9,6 +9,7 @@ class SwipperA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (agentes == null) {
+      print('Llego vacio');
       return Center(child: CircularProgressIndicator());
     } else {
       final size = MediaQuery.of(context).size;

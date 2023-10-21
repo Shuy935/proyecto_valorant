@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DrawerA extends StatelessWidget {
+  final VoidCallback onAgenteClick;
+
+  DrawerA({required this.onAgenteClick});
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -31,9 +34,7 @@ class DrawerA extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              //TODO:
-            },
+            onTap: onAgenteClick,
             child: FadeInImage(
               placeholder: AssetImage('assets/foto.jpeg'),
               image: AssetImage('assets/Agente.png'),
