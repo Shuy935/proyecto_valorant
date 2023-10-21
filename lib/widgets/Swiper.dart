@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:outlined_text/outlined_text.dart';
 import 'package:proyecto_valorant/models/agente.dart';
 
 class SwipperA extends StatelessWidget {
@@ -18,7 +19,7 @@ class SwipperA extends StatelessWidget {
         child: Swiper(
           itemCount: agentes?.length ?? 0,
           layout: SwiperLayout.STACK,
-          itemWidth: size.width * 0.4,
+          itemWidth: size.width * 0.5,
           itemHeight: size.height * 0.4,
           itemBuilder: (_, int index) {
             final agente = agentes![index];
@@ -29,26 +30,28 @@ class SwipperA extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Container(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: FadeInImage(
-                        placeholder: AssetImage('assets/foto.jpeg'),
-                        image: NetworkImage(agente.displayIcon),
-                      ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: FadeInImage(
+                      placeholder: AssetImage('assets/foto.jpeg'),
+                      image: NetworkImage(agente.displayIcon),
                     ),
                   ),
                   Positioned(
-                    top:
-                        260,
-                    child: Text(
-                      agente.displayName,
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red,
-                        fontFamily: 'Valorant',
+                    top: 270,
+                    child: OutlinedText(
+                      text: Text(
+                        agente.displayName,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                          fontFamily: 'Valorant',
+                        ),
                       ),
+                      strokes: [
+                        OutlinedTextStroke(color: const Color.fromARGB(255, 0, 0, 0), width: 4),
+                      ],
                     ),
                   ),
                 ],
