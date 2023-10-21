@@ -23,10 +23,17 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
+        title: Text(
+          mostrarSwiper ? 'Agentes' : '',
+          style: TextStyle(
+            fontFamily: 'valorant',
+            color: Colors.red,
+          ),
+        ),
       ),
-      body: Center(
-        child: mostrarSwiper ? SwipperA(agentes: agentes) : Image.asset('assets/logo.png'),
-      ),
+      body: mostrarSwiper
+            ? SwipperA(agentes: agentes)
+            : Image.asset('assets/logo.png'),
       drawer: DrawerA(
         onAgenteClick: () {
           setState(() {

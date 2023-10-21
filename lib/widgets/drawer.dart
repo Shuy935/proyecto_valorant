@@ -34,7 +34,10 @@ class DrawerA extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: onAgenteClick,
+            onTap: () {
+              onAgenteClick();
+              Navigator.pop(context);
+            },
             child: FadeInImage(
               placeholder: AssetImage('assets/foto.jpeg'),
               image: AssetImage('assets/Agente.png'),

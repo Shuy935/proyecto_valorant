@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:proyecto_valorant/providers/provider.dart';
-import 'package:proyecto_valorant/screens/HomePage.dart';
+import 'package:proyecto_valorant/screens/screens.dart';
+
 
 void main() {
   runApp(
@@ -13,7 +14,10 @@ void main() {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        title: 'peliculas',
+        initialRoute: 'home',
+        routes: {'home': (_) => HomePage(), 'agente': (_) => AgenteS(), 'armas': (_) => Armas(), 'gear': (_) => Equipamento(),
+        'mapa': (_) => Mapa(), 'mode': (_) => Modo()},
       ),
     ),
   );

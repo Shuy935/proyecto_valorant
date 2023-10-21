@@ -9,30 +9,49 @@ class SwipperA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (agentes == null) {
-      print('Llego vacio');
-      return Center(child: CircularProgressIndicator());
+      return CircularProgressIndicator();
     } else {
       final size = MediaQuery.of(context).size;
       return Container(
         width: double.infinity,
-        height: size.height * 0.5,
+        height: size.height * 0.8,
         child: Swiper(
           itemCount: agentes?.length ?? 0,
           layout: SwiperLayout.STACK,
-          itemWidth: size.width * 0.5,
+          itemWidth: size.width * 0.4,
           itemHeight: size.height * 0.4,
           itemBuilder: (_, int index) {
             final agente = agentes![index];
             return GestureDetector(
               onTap: () {
-                // Agregar lógica para mostrar detalles del agente
+                Navigator.pushNamed(context, 'armas', arguments: '');
               },
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: FadeInImage(
-                  placeholder: AssetImage('assets/foto.jpeg'),
-                  image: NetworkImage(agente.displayIcon),
-                ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: FadeInImage(
+                        placeholder: AssetImage('assets/foto.jpeg'),
+                        image: NetworkImage(agente.displayIcon),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top:
+                        260,
+                    child: Text(
+                      agente.displayName,
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red,
+                        fontFamily: 'Valorant',
+                      ),
+                    ),
+                  ),
+                ],
               ),
             );
           },
