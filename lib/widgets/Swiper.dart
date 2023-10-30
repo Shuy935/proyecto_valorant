@@ -13,7 +13,7 @@ class SwipperA extends StatelessWidget {
       return CircularProgressIndicator();
     } else {
       final size = MediaQuery.of(context).size;
-      return Container(
+      return SizedBox(
         width: double.infinity,
         height: size.height * 0.8,
         child: Swiper(
@@ -25,7 +25,7 @@ class SwipperA extends StatelessWidget {
             final agente = agentes![index];
             return GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'armas', arguments: '');
+                Navigator.pushNamed(context, 'agente', arguments: agente);
               },
               child: Stack(
                 alignment: Alignment.center,

@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:proyecto_valorant/providers/provider.dart';
 import 'package:proyecto_valorant/screens/screens.dart';
 
-
 void main() {
   runApp(
     MultiProvider(
